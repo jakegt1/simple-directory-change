@@ -39,7 +39,7 @@ class DirSearch():
                     break
         else:
             if(self.problematic_search_string()):
-                matched_dir = self.workdir + "/" + self.search_string()
+                matched_dir = self.workdir + "/" + self.search_string
                 matched_dir = os.path.expanduser(matched_dir)
                 matched_dir = os.path.realpath(matched_dir)
             else:
