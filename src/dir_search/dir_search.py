@@ -18,6 +18,8 @@ class DirSearch():
         workdir = os.getcwd()
         if(split):
             full_path = "/".join(split)
+            if(not split[0]):
+                full_path = "/" + full_path
             workdir = full_path
             workdir = os.path.expanduser(workdir)
             workdir = os.path.realpath(workdir)
