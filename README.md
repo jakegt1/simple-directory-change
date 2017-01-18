@@ -30,8 +30,8 @@ The default bin creates a command called 'dir_search'. This will only print out 
 
 ```bash
 function change_dir(){
-    cd $(dir_search $1)
+    cd "$(dir_search "$1")"
 }
-alias cd='change_dir'
+alias scd='change_dir'
 ```
 
