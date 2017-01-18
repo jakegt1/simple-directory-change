@@ -24,7 +24,7 @@ class DirSearch():
         return workdir
 
     def return_first_match(self):
-        matched_dir = ""
+        matched_dir = self.workdir
         if(not self.problematic_search_string() and self.search_string):
             for root, dirs, files in os.walk(self.workdir):
                 found = False
