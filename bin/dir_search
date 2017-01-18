@@ -2,6 +2,7 @@
 import sys
 import argparse
 import subprocess
+import os
 from dir_search import DirSearch
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -11,7 +12,11 @@ parser.add_argument(
 )
 args = parser.parse_args()
 dir_string = ''.join(args.dir_string)
-dir_search = DirSearch(dir_string)
-match = dir_search.return_first_match()
-if(match):
-    print(match)
+if(os.path.isdir(dir_string)):
+    #Skip!
+    print(dir_string)
+else:
+    dir_search = DirSearch(dir_string)
+    match = dir_search.return_first_match()
+    if(match):
+        print(match)
