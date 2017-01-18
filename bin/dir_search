@@ -7,10 +7,11 @@ parser = argparse.ArgumentParser()
 parser.add_argument(
     "dir_string",
     help="directory for search",
+    nargs="+"
 )
 args = parser.parse_args()
-
-dir_search = DirSearch(args.dir_string)
+dir_string = ''.join(args.dir_string)
+dir_search = DirSearch(dir_string)
 match = dir_search.return_first_match()
 if(match):
     print(match)
