@@ -1,4 +1,5 @@
 import os
+from multiprocessing import Pool
 import re
 
 class DirSearch():
@@ -24,6 +25,39 @@ class DirSearch():
             workdir = os.path.expanduser(workdir)
             workdir = os.path.realpath(workdir)
         return workdir
+
+    def map_func(self, obj):
+        matched = None
+        root = obj[0]
+        dirs = obj[1]
+        files = obj[2]
+        found = False
+        if(root[-1] != "/"):
+            root += "/"
+            for dir in dirs:
+                if(self.regex.match(dir)):
+                    matched = root+dir
+                    found = True
+                    break
+        return matched
+
+    def return_first_match_multi(self):
+        matched_dir = self.workdir
+        if(not self.problematic_search_string() and self.search_string):
+            with Pool(4) as pool:
+                for match in pool.imap_unordered(self.map_func, os.walk(self.workdir), 1):
+                    if(match):
+                        matched_dir = match
+                        pool.terminate()
+                        break
+        else:
+            if(self.problematic_search_string()):
+                matched_dir = self.workdir + "/" + self.search_string
+                matched_dir = os.path.expanduser(matched_dir)
+                matched_dir = os.path.realpath(matched_dir)
+            else:
+                matched_dir = self.workdir
+        return matched_dir
 
     def return_first_match(self):
         matched_dir = self.workdir
