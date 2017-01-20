@@ -6,7 +6,7 @@ This is a simple program designed to save time when changing directories via com
 
 Something that I always find as an issue when using command line is that a lot of the time when swapping directories in terminal is having to constantly tab until i get to the directory i want.
 
-If I know the directory i'm looking for is '~/some_repo/src/main/java/co/uk/something/', the usual course of action is to go ~/som<TAB>/src/m<TAB>, which gets tedious after having to do it all the time.
+If I know the directory i'm looking for is '~/some_repo/src/main/java/co/uk/something/', the usual course of action is to go ~/som(TAB)/src/m(TAB), which gets tedious after having to do it all the time.
 
 ## The solution
 
@@ -26,12 +26,14 @@ This ends up being part issue in some folders, such as when you have multiple 's
 
 ## Additional requirements
 
-The default bin creates a command called 'dir_search'. This will only print out the matched directory, so if you want to use this to immidieately change directories you will require a bash alias, as such:
+The default bin creates a command called 'dir_search'. This will only print out the matched directory, so if you want to use this to change directories you will require a bash alias, as such:
 
 ```bash
 function change_dir(){
     cd "$(dir_search "$1")"
 }
 alias scd='change_dir'
+#alias cd='change_dir' (for people who are happy with relying on it!!)
 ```
+
 
