@@ -30,7 +30,12 @@ The default bin creates a command called 'dir_search'. This will only print out 
 
 ```bash
 function change_dir(){
-    cd "$(dir_search "$1")"
+    dir="$(dir_search "$*")"
+    if [ -d "$dir" ]; then
+        cd "$dir"
+    else
+        echo "$dir" #This will only happen on timeout
+    fi
 }
 alias scd='change_dir'
 #alias cd='change_dir' (for people who are happy with relying on it!!)
