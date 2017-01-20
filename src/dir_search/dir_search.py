@@ -10,7 +10,10 @@ class DirSearch():
         self.regex = re.compile(self.search_string)
 
     def problematic_search_string(self):
-        curr_path = os.getcwd() + "/" + self.search_string
+        curr_path = os.getcwd()
+        if(curr_path[-1] != "/"):
+            curr_path += "/"
+        curr_path += self.search_string
         resolved_path = os.path.realpath(self.search_string)
         return (curr_path != resolved_path)
 
