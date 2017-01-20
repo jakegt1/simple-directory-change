@@ -26,7 +26,7 @@ This ends up being part issue in some folders, such as when you have multiple 's
 
 ## Additional requirements
 
-The default bin creates a command called 'dir_search'. This will only print out the matched directory, so if you want to use this to immidieately change directories you will require a bash alias, as such:
+The default bin creates a command called 'dir_search'. This will only print out the matched directory, so if you want to use this to change directories you will require a bash alias, as such:
 
 ```bash
 function change_dir(){
