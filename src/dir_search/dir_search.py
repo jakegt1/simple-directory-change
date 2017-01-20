@@ -35,7 +35,12 @@ class DirSearch():
                 found = False
                 if(root[-1] != "/"):
                     root += "/"
-                for dir in dirs:
+                    #sort hidden directories at end
+                    sorted_dirs = sorted(
+                        dirs,
+                        key=lambda chr: chr if chr != '.' else 'z'
+                    )
+                for dir in sorted_dirs:
                     if(self.regex.match(dir)):
                         matched_dir = root+dir
                         found = True
