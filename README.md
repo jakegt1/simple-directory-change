@@ -20,6 +20,8 @@ There are some issues with the solution that will likely have to say this way. N
 
 This ends up being part issue in some folders, such as when you have multiple 'src' directories in a project. In the end though, these are usually still faster than the alternative as you'd likely just narrow your search by changing into a directory you're more sure of not having collisions.
 
+Notably it's also *very slightly* slower when changing to an existing directory. Not really noticeable though, and likely won't be a problem in terms of productivity.
+
 # Requirements
 
 * Python3 (tested on 3.5.2)
@@ -33,5 +35,7 @@ function change_dir(){
     cd "$(dir_search "$1")"
 }
 alias scd='change_dir'
+#alias cd='change_dir' (for people who are happy with relying on it!!)
 ```
+
 
