@@ -6,7 +6,7 @@ This is a simple program designed to save time when changing directories via com
 
 Something that I always find as an issue when using command line is that a lot of the time when swapping directories in terminal is having to constantly tab until i get to the directory i want.
 
-If I know the directory i'm looking for is '~/some_repo/src/main/java/co/uk/something/', the usual course of action is to go ~/som<TAB>/src/m<TAB>, which gets tedious after having to do it all the time.
+If I know the directory i'm looking for is '~/some_repo/src/main/java/co/uk/something/', the usual course of action is to go ~/som(TAB)/src/m(TAB), which gets tedious after having to do it all the time.
 
 ## The solution
 
