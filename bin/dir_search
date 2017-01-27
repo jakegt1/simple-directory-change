@@ -23,7 +23,7 @@ else:
     signal.alarm(3)
     try:
         match = dir_search.return_first_match()
-    except Exception:
+    except Exception as e:
         match = "Did not find anything for "+dir_string+" in a reasonable time."
     if(match):
         print(match)
