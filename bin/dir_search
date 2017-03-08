@@ -16,14 +16,17 @@ parser.add_argument(
 )
 args = parser.parse_args()
 dir_string = ''.join(args.dir_string)
-if(os.path.isdir(os.path.expanduser(dir_string))):
-    print(dir_string)
-else:
-    dir_search = DirSearch(dir_string)
-    signal.alarm(3)
-    try:
-        match = dir_search.return_first_match()
-    except Exception as e:
-        match = "Did not find anything for "+dir_string+" in a reasonable time."
-    if(match):
-        print(match)
+try:
+    if(os.path.isdir(os.path.expanduser(dir_string))):
+        print(dir_string)
+    else:
+        dir_search = DirSearch(dir_string)
+        signal.alarm(3)
+        try:
+            match = dir_search.return_first_match()
+        except Exception as e:
+            match = "Did not find anything for "+dir_string+" in a reasonable time."
+        if(match):
+            print(match)
+except KeyboardInterrupt:
+    sys.exit(0)
