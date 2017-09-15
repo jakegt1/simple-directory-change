@@ -41,7 +41,8 @@ class DirSearch():
                     key=lambda dir: dir[0] if dir[0] != '.' else 'z'
                 )
                 for dir in sorted_dirs:
-                    if(self.regex.match(dir)):
+                    lower_dir = dir.lower()
+                    if(self.regex.match(lower_dir)):
                         matched_dir = root+dir
                         found = True
                         break
